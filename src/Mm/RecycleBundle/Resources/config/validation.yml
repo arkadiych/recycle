@@ -5,5 +5,5 @@ Mm\RecycleBundle\Entity\Batterypack:
             - NotBlank: ~
         count:
             - NotBlank: ~
-        name:
-            - Blank: ~
+            - GreaterThan:
+                value: 0

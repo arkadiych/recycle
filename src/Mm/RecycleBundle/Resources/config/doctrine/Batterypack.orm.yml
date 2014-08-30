@@ -14,7 +14,7 @@ Mm\RecycleBundle\Entity\Batterypack:
             length: '30'
         count:
             type: integer
-            columnDefinition: "unsigned"
+            options: {"unsigned":true}
         name:
             type: string
             length: '50'

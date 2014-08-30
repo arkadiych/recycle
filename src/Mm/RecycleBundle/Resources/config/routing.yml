@@ -5,7 +5,7 @@ mm_recycle_batterypack_index:
     path:     /batterypack/index
     defaults: { _controller: MmRecycleBundle:Batterypack:index }
 mm_recycle_batterypack:
-    path:     /batterypack
+    path:     /batterypack/
     defaults: { _controller: MmRecycleBundle:Batterypack:index }
 mm_recycle_homepage:
     path:     /
