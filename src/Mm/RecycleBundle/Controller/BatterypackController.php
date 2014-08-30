@@ -3,8 +3,9 @@
 namespace Mm\RecycleBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Mm\RecycleBundle\Entity\Batterypack;
 use Symfony\Component\HttpFoundation\Request;
+use Mm\RecycleBundle\Entity\Batterypack;
+use Mm\RecycleBundle\Form\Type\BatterypackType;
 
 class BatterypackController extends Controller
 {
@@ -16,32 +17,26 @@ class BatterypackController extends Controller
         $batterypacks = $repository->findAllGroupedByType();
 
         return $this->render('MmRecycleBundle:Batterypack:index.html.twig', array(
-          'batterypacks' => $batterypacks));
+            'batterypacks' => $batterypacks));
     }
 
     public function addAction(Request $request)
     {
-        // create a task and give it some dummy data for this example
         $batterypack = new Batterypack();
 
-        $form = $this->createFormBuilder($batterypack)
-          ->add('type', 'text')
-          ->add('count', 'integer')
-          ->add('name', 'text', array('required' => false))
-          ->add('save', 'submit', array('label' => 'Create'))
-          ->getForm();
+        $form = $this->createForm(new BatterypackType(), $batterypack);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($batterypack);
-          $em->flush();
-          return $this->redirect($this->generateUrl('mm_recycle_homepage'));
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($batterypack);
+            $em->flush();
+            return $this->redirect($this->generateUrl('mm_recycle_homepage'));
         }
 
         return $this->render('MmRecycleBundle:Batterypack:add.html.twig', array(
-          'form' => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 }
