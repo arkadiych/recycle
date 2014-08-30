@@ -1,0 +1,22 @@
+Mm\RecycleBundle\Entity\Batterypack:
+    type: entity
+    table: null
+    repositoryClass: Mm\RecycleBundle\Entity\BatterypackRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            length: '30'
+        count:
+            type: integer
+            columnDefinition: "unsigned"
+        name:
+            type: string
+            length: '50'
+            nullable: true
+    lifecycleCallbacks: {  }

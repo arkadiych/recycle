@@ -1,0 +1,9 @@
+# src/Mm/RecycleBundle/Resources/config/validation.yml
+Mm\RecycleBundle\Entity\Batterypack:
+    properties:
+        type:
+            - NotBlank: ~
+        count:
+            - NotBlank: ~
+        name:
+            - Blank: ~

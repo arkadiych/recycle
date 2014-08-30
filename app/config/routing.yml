@@ -1,0 +1,4 @@
+mm_recycle:
+    resource: "@MmRecycleBundle/Resources/config/routing.yml"
+    prefix:   /
+

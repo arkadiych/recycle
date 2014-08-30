@@ -1,0 +1,19 @@
+<h1>
+    Welcome to Recycle Batteries application
+</h1>
+
+<p>Click <a href="{{ url('mm_recycle_batterypack_add') }}">here</a> to add new batterries to the box</p>
+
+<p>Statistics:</p>
+<table border="1">
+    <tr>
+        <th>Battery type</th>
+        <th>Total count</th>
+    </tr>
+{% for batterypack in batterypacks %}
+    <tr>
+        <td>{{ batterypack.type }}</td>
+        <td>{{ batterypack.total }}</td>
+    </tr>
+{% endfor %}
+</table>
