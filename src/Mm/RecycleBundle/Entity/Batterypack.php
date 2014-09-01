@@ -4,6 +4,7 @@ namespace Mm\RecycleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+// You could try annotations here. With annotations you could define all fields + validations in this class.
 /**
  * Batterypack
  */
