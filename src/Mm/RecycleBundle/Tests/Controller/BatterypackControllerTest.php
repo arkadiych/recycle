@@ -56,6 +56,10 @@ class BatterypackControllerTest extends WebTestCase
     */
     public function testTypeCount($type, $count, $pos)
     {
+        //todo: you should combine this test method with "testRowsCont"
+        // also code from setUpBeforeClass should be moved into this test method
+        // you should take care of test's performance. In your case there are 15 ! requests to controller.
+        // the same functionality could be covered with only 5 calls: 1 - to render form first time, 3 - to submit data 3 times, 1 - to check statistics page
         $crawler = $this->client->request('GET', '/');
         $this->assertTrue($crawler->filter('table.battery-stats tbody td')->eq($pos)->text() == $count);
     }
