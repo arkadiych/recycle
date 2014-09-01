@@ -1,6 +1,8 @@
 # src/Mm/RecycleBundle/Resources/config/validation.yml
 Mm\RecycleBundle\Entity\Batterypack:
     properties:
+    # if you already started adding validators: for all text fields developers ussually add "Length(max=255)"
+    # Without this validator, if somebody type 300 simbols in form - only first 255 will be saved, and no error will appear 
         type:
             - NotBlank: ~
         count:
