@@ -19,6 +19,7 @@ class BatterypackRepository extends EntityRepository
   public function findAllGroupedByType()
     {
         return $this->getEntityManager()
+        //todo: You should write a query in object oriented way. It adds transperency and maintanability of the code. 
             ->createQuery(
               'SELECT b.type, SUM(b.count) as total
               FROM MmRecycleBundle:Batterypack b
