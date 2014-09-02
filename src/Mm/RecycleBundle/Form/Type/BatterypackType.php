@@ -20,4 +20,6 @@ class BatterypackType extends AbstractType
     {
         return 'batterypack';
     }
+    //todo: via method setDefaultOptions() you could set "data_class" parameter.
+    // Then it would be much easier to work with form in controller
 }
