@@ -64,8 +64,9 @@ class BatterypackControllerTest extends WebTestCase
         $this->assertTrue($crawler->filter('table.battery-stats tbody td')->eq($pos)->text() == $count);
     }
 
-    public function provider ()
+    public function provider()
     {
+      ;
       return array(
         array('AA', 5, 1),
         array('AAA', 3, 3)
