@@ -70,6 +70,6 @@ class BatterypackControllerTest extends WebTestCase
         array('AA', 5, 1),
         array('AAA', 3, 3)
       );
-  }
+    }
 
 }
