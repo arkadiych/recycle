@@ -66,7 +66,6 @@ class BatterypackControllerTest extends WebTestCase
 
     public function provider()
     {
-      ;
       return array(
         array('AA', 5, 1),
         array('AAA', 3, 3)
