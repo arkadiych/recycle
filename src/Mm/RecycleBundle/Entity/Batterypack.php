@@ -3,30 +3,40 @@
 namespace Mm\RecycleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
-// You could try annotations here. With annotations you could define all fields + validations in this class.
 /**
  * Batterypack
+ *
+ * @ORM\Entity(repositoryClass= "Mm\RecycleBundle\Entity\BatterypackRepository")
+ * @ORM\Table(name="Batterypack")
  */
 class Batterypack
 {
     /**
-     * @var integer
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=255)
      */
     private $type;
 
     /**
-     * @var integer
+     * @ORM\Column(type="integer", options={"unsigned" = true})
+     * @Assert\NotBlank()
+     * @Assert\GreaterThan(value = 0)
      */
     private $count;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\Length(max=255)
      */
     private $name;
 
