@@ -4,7 +4,6 @@ namespace Mm\RecycleBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Mm\RecycleBundle\Entity\Batterypack;
 use Mm\RecycleBundle\Form\Type\BatterypackType;
 
 class BatterypackController extends Controller
@@ -22,15 +21,13 @@ class BatterypackController extends Controller
 
     public function addAction(Request $request)
     {
-        $batterypack = new Batterypack();
-
-        $form = $this->createForm(new BatterypackType(), $batterypack);
+        $form = $this->createForm(new BatterypackType());
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($batterypack);
+            $em->persist($form->getData());
             $em->flush();
             return $this->redirect($this->generateUrl('mm_recycle_homepage'));
         }
