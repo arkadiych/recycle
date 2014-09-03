@@ -1,12 +1,20 @@
 <?php
-# src/Mm/RecycleBundle/Form/Type/BatterypackType.php
 namespace Mm\RecycleBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class BatterypackType extends AbstractType
 {
+    const BATTERYPACK_ENTITY = 'Mm\RecycleBundle\Entity\Batterypack';
+    const FORM_NAME = 'batterypack';
+
+    /**
+    * build Batterypack form
+    * @param FormBuilderInterface $builder
+    * @param array                $options
+    */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -16,10 +24,21 @@ class BatterypackType extends AbstractType
             ->add('save', 'submit', array('label' => 'Create'));
     }
 
+    /**
+    * @param OptionsResolverInterface $resolver
+    */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => self::BATTERYPACK_ENTITY
+        ));
+    }
+
+    /**
+    * @return string
+    */
     public function getName()
     {
-        return 'batterypack';
+        return self::FORM_NAME;
     }
-    //todo: via method setDefaultOptions() you could set "data_class" parameter.
-    // Then it would be much easier to work with form in controller
 }
